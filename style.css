@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=DM+Serif+Display&display=swap');
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: #e8f4ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(56, 100, 180, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(100, 60, 160, 0.3) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 10%, rgba(30, 80, 140, 0.2) 0%, transparent 40%),
+        linear-gradient(160deg, #060d1f 0%, #0c1a35 40%, #111827 100%);
+}
+
+.container {
+    width: 820px;
+    height: 620px;
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 8px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 40px 80px rgba(16, 104, 182, 0.15);
+
+    display: grid;
+    grid-template: 90px 310px 110px 110px / repeat(8, 1fr);
+}
+
+/* ── Titre ───────────────────────────────────────────────────────────────────── */
+h1 {
+    grid-area: 1 / 1 / 2 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-shadow: 0 0 30px rgba(100, 180, 255, 0.4);
+}
+
+.bloc-logo-info {
+    grid-area: 2 / 1 / 3 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 20px;
+}
+
+.bloc-logo {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 30px rgba(100, 180, 255, 0.5));
+}
+
+.bloc-logo img {
+    width: 85%;
+    height: auto;
+}
+
+.bloc-info {
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.bloc-info .temps {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(200, 230, 255, 0.8);
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+
+
+.bloc-info .localisation {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(180, 220, 255, 0.9);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+
+/* ── Prévisions horaires ─────────────────────────────────────────────────────── */
+.heure-bloc-prevision {
+    grid-area: 3 / 1 / 4 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Prévisions journalières ─────────────────────────────────────────────────── */
+.jour-prevision-bloc {
+    grid-area: 4 / 1 / 5 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.jour-prevision-bloc,
+.heure-bloc-prevision {
+    display: grid;
+    grid-template: 1fr / repeat(7, 1fr);
+}
+
+/* ── Blocs individuels heure / jour ──────────────────────────────────────────── */
+.bloc-h,
+.bloc-j {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: background 0.2s;
+}
+
+.bloc-h:hover,
+.bloc-j:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.bloc-h:not(:last-child),
+.bloc-j:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bloc-h p,
+.bloc-j p {
+    margin: 2px 0;
+}
+
+.heure-nom-prevision,
+.jour-prevision-nom {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(180, 215, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.heure-prevision-valeur,
+.jour-prevision-temp {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+.bloc-info .temperature {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 40px rgba(120, 200, 255, 0.4);
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #060d1f 0%, #0c1a35 100%);
+    z-index: 1000;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease;
+}
+
+.overlay img.char {
+    width: 60px;
+    opacity: 0.7;
+    filter: invert(1);
+    position: static;
+    transform: none;
+}
+
+.disparition {
+    opacity: 0;
+    pointer-events: none;
+}
